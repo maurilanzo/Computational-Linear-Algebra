@@ -39,14 +39,12 @@ def print_ranking(scores, title="Ranking"):
         
 class PageRankEngine:
     def __init__(self, damping_factor=0.85, tolerance=1e-9, max_iter=100):
-        # FASE 1: IL TELAIO
-        # Impostazioni matematiche
+       
         self.d = damping_factor      # 85% di probabilità di seguire i link
         self.m = 1.0 - self.d        # 15% di probabilità di teletrasporto
         self.tol = tolerance         # Quando smettere (precisione)
         self.max_iter = max_iter     # Limite di sicurezza giri
         
-        # Strutture Dati (Memoria del Grafo)
         self.urls = {}           # Mappa ID -> Nome Sito
         self.links = {}          # Mappa ID -> Lista di chi linko (es. 1 -> [2, 3])
         self.out_degree = {}     # Mappa ID -> Quanti link ho in uscita
